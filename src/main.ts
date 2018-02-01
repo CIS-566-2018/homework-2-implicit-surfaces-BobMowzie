@@ -1,4 +1,4 @@
-import {vec3} from 'gl-matrix';
+import {vec2, vec3} from 'gl-matrix';
 import * as Stats from 'stats-js';
 import * as DAT from 'dat-gui';
 import Square from './geometry/Square';
@@ -13,6 +13,7 @@ const controls = {
 };
 
 let screenQuad: Square;
+let frame: number = 0;
 
 function main() {
   // Initial display for framerate
@@ -60,13 +61,14 @@ function main() {
   function tick() {
     camera.update();
     stats.begin();
+    frame++;
 
     gl.viewport(0, 0, window.innerWidth, window.innerHeight);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
     // TODO: get / calculate relevant uniforms to send to shader here
     // TODO: send uniforms to shader
-
+    raymarchShader.setSize(vec2.fromValues(window.innerWidth, window.innerHeight));
+    raymarchShader.setFrame(frame);
     // March!
     raymarchShader.draw(screenQuad);
 
