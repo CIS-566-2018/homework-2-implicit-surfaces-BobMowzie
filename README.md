@@ -46,3 +46,7 @@ We would suggest editing your project with Visual Studio Code https://code.visua
 - [Lecture slides](https://docs.google.com/presentation/d/1W5KWvkT1tscRG8x5tSfKXBRx9EGTZ-jVsOhIlfhJQLQ/edit?usp=sharing) (see the last two slides)
 
 https://www.shadertoy.com/view/llt3R4
+http://www.iquilezles.org/www/index.htm
+
+The interesting material in my scene is the material applied to the flame. It interprets the objects normals relative to the camera to determine how translucent it is.
+![](candle.png)
